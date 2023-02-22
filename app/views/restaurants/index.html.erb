@@ -1,0 +1,15 @@
+<h1> List of the best restaurants</h1>
+<ul>
+<% @restaurants.each do |restaurant| %>
+  <p><li> - <%= link_to restaurant.name, restaurant_path(restaurant.id) %> - <%= link_to restaurant.address, restaurant_path(restaurant.id) %> - <%= link_to restaurant.phone_number, restaurant_path(restaurant.id) %> -<%= link_to restaurant.category, restaurant_path(restaurant.id) %></li></p>
+<% end %>
+</ul>
+<br>
+
+<%= simple_form_for [@restaurant] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :phone_number %>
+  <%= f.input :category %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
